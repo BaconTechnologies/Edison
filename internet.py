@@ -20,8 +20,8 @@ def enterZone( zoneNumber ):
 	zoneName = "(Enter) Zone " + zoneNumber
 	print zoneName
 
-	if zones[zoneNumber] < 10:
-		++zones[zoneNumber]
+	if zones[int(zoneNumber)] < 10:
+		++zones[int(zoneNumber)]
 		availableSpaces()
 
 	else:
@@ -53,8 +53,8 @@ def exitZone( zoneNumber ):
 	zoneName = "(Exit) Zone " + zoneNumber
 	print zoneName
 
-	if zones[zoneNumber] > 0 and zones[zoneNumber] <= 10:
-		--zones[zoneNumber]
+	if zones[int(zoneNumber)] > 0 and zones[int(zoneNumber)] <= 10:
+		--zones[int(zoneNumber)]
 		availableSpaces()
 	else:
 		print 'Upss;'
