@@ -20,18 +20,22 @@ exitZone2 = ttp223.TTP223(7)
 while 1:
 	if enterZone1.value() :
 		zoneNumber = "1"
+		print 'EnterZone1'
 		#enterZone( zoneNumber )
 
 	if enterZone2.value() :
 		zoneNumber = "2"
+		print 'EnterZone2'
 		#enterZone( zoneNumber )
 
 	if exitZone1.value() :
 		zoneNumber = "1"
+		print 'ExitZone1'
 		#exitZone( zoneNumber )
 	
 	if exitZone2.value() :
 		zoneNumber = "2"
+		print 'ExitZone2'
 		#exitZone( zoneNumber )
 	
 	#time.sleep(1)
