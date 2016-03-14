@@ -22,7 +22,7 @@ def enterZone( zoneNumber ):
 	zoneName = "(Enter) Zone " + zoneNumber
 	print zoneName
 
-	if zones[int(zoneNumber)] < 10:
+	if zones[int(zoneNumber)] >= 0 and zones[int(zoneNumber)] < 10:
 		++zones[int(zoneNumber)]
 		availableSpaces()
 
