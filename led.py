@@ -5,6 +5,9 @@ import pyupm_grove as grove
 ledON = grove.GroveLed(2)
 ledOFF = grove.GroveLed(6)
 
+enterZone1 = grove.GroveButton(4)
+enterZone2 = grove.GroveButton(8)
+
 def availableSpaces():
 	global ledON, ledOFF
 
@@ -13,9 +16,16 @@ def availableSpaces():
 
 def notAvailableSpaces():
 	global ledON, ledOFF
-	
+
 	ledON.off()
 	ledOFF.on()
+
+while 1:
+	if enterZone1.value() or enterZone2.value():
+		availableSpaces()
+	else:
+		notAvailableSpaces()
+
 
 # Delete the Grove LED object
 del ledON
