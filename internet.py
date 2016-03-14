@@ -1,7 +1,13 @@
 import urllib2
 import json
 
+from led import *
+
+zones = [][]
+
 def enterZone( zoneNumber ):
+	global zones
+
 	url = "https://randomuser.me/api/?results=" + zoneNumber
 
 	'''
@@ -14,6 +20,14 @@ def enterZone( zoneNumber ):
 	zoneName = "(Enter) Zone " + zoneNumber
 	print zoneName
 
+	if zones[zoneNumber] < 10:
+		zones[zoneNumber]++
+		availableSpaces()
+
+	else:
+		print 'No more space'
+		notAvailableSpaces()
+
 	'''
 	basePath = "results"
 
@@ -25,6 +39,8 @@ def enterZone( zoneNumber ):
 	'''
 
 def exitZone( zoneNumber ):
+	global zones
+
 	url = "https://randomuser.me/api/?results=" + zoneNumber
 
 	'''
@@ -36,6 +52,13 @@ def exitZone( zoneNumber ):
 
 	zoneName = "(Exit) Zone " + zoneNumber
 	print zoneName
+
+	if zones[zoneNumber] > 0 && zones[zoneNumber] <= 10:
+		zones[zoneNumber]--
+		availableSpaces()
+	else:
+		print 'Upss;'
+		notAvailableSpaces()
 
 	'''
 	basePath = "results"

@@ -2,18 +2,17 @@ import time
 import pyupm_grove as grove
 
 # Create the Grove LED object using GPIO pin 2
-led = grove.GroveLed(2)
+ledON = grove.GroveLed(2)
+ledOFF = grove.GroveLed(6)
 
-# Print the name
-print led.name()
+def availableSpaces():
+	ledOFF.off()
+	ledON.on()
 
-# Turn the LED on and off 10 times, pausing one second
-# between transitions
-for i in range (0,10):
-    led.on()
-    time.sleep(1)
-    led.off()
-    time.sleep(1)
+def notAvailableSpaces():
+	ledON.off()
+	ledOFF.on()
 
 # Delete the Grove LED object
-del led
+del ledON
+del ledOFF
