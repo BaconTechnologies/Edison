@@ -17,4 +17,4 @@ def request( whereAreYouGoing ):
 		firstName = js[basePath][i]["user"]["email"]
 		password = js[basePath][i]["user"]["password"]
 
-		print (firstName + '	password: ' + gender).encode('utf-8')
+		print (firstName + '	password: ' + password).encode('utf-8')
