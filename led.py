@@ -20,12 +20,6 @@ def notAvailableSpaces():
 	ledON.off()
 	ledOFF.on()
 
-while 1:
-	if enterZone1.value() or enterZone2.value():
-		availableSpaces()
-	else:
-		notAvailableSpaces()
-
 
 # Delete the Grove LED object
 del ledON
