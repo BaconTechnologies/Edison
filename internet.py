@@ -3,7 +3,7 @@ import json
 
 from led import *
 
-zones = [][]
+zones = [[], []]
 
 def enterZone( zoneNumber ):
 	global zones
