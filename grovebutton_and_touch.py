@@ -25,7 +25,7 @@ while 1:
 	else :
 		print 'Touch Not Pressed'
 	
-	time.sleep(5)
+	time.sleep(2)
 
 # Delete the button object
 del button

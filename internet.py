@@ -3,6 +3,9 @@ import json
 
 def request( whereAreYouGoing ):
 	url = "https://randomuser.me/api/?results=", whereAreYouGoing
+
+	print url
+
 	html = urllib2.urlopen( url ).read()
 
 	try: js = json.loads(html)
