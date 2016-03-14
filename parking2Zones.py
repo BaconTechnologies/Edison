@@ -2,6 +2,8 @@ import time
 import pyupm_grove as grove
 import pyupm_ttp223 as ttp223
 
+import pyupm_i2clcd as lcd
+
 from internet import *
 
 # Create button sensor in D8 && D4
@@ -11,6 +13,16 @@ enterZone2 = grove.GroveButton(8)
 # Create touch sensor in D7 && D3
 exitZone1 = ttp223.TTP223(3)
 exitZone2 = ttp223.TTP223(7)
+
+# Initialize LCD Displays
+lcdZone1 = lcd.Jhd1313m1(0, 0x3E, 0x62)
+lcdZone2 = lcd.Jhd1313m1(0, 0x3E, 0x62)
+
+def initLCD(lcdZone):
+	lcdZone.setCursor(0,0)
+	lcdZone.write('Hola?')
+
+initLCD( lcdZone1 )
 
 # Read the input and print, waiting one second between readings
 while 1:
