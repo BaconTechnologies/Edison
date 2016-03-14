@@ -3,7 +3,7 @@ import json
 
 from led import *
 
-zones = [[], []]
+zones = [[], [], []]
 zones[1] = 10;
 zones[2] = 10;
 
