@@ -2,9 +2,9 @@ import time
 import pyupm_grove as grove
 import pyupm_ttp223 as ttp223
 
-import pyupm_i2clcd as lcd
+#import pyupm_i2clcd as lcd
 
-from internet import *
+#from internet import *
 
 # Create button sensor in D8 && D4
 enterZone1 = grove.GroveButton(4)
@@ -38,7 +38,7 @@ while 1:
 		print 'ExitZone2'
 		#exitZone( zoneNumber )
 	
-	#time.sleep(1)
+	time.sleep(1)
 
 # Delete the button object
 del enterZone1
