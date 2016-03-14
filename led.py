@@ -1,11 +1,19 @@
-import mraa
 import time
+import pyupm_grove as grove
 
-led = mraa.Gpio(13)
-led.dir(mraa.DIR_OUT)
+# Create the Grove LED object using GPIO pin 2
+led = grove.GroveLed(2)
 
-while True:
-    led.write(1)
-    time.sleep(0.2)
-    led.write(0)
-    time.sleep(0.2)
+# Print the name
+print led.name()
+
+# Turn the LED on and off 10 times, pausing one second
+# between transitions
+for i in range (0,10):
+    led.on()
+    time.sleep(1)
+    led.off()
+    time.sleep(1)
+
+# Delete the Grove LED object
+del led

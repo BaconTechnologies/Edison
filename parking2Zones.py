@@ -15,13 +15,13 @@ exitZone1 = ttp223.TTP223(3)
 exitZone2 = ttp223.TTP223(7)
 
 # Initialize LCD Displays
+'''
 lcdZone = lcd.Jhd1313m1(0, 0x3E, 0x62)
-#lcdZone2 = lcd.Jhd1313m1(0, 0x3E, 0x62)
-
-while 1:
-	lcdZone.setCursor(0,0)
-	lcdZone.write('Hola?')
-	lcdZone.setColor(0, 153, 0)
+lcdZone.setCursor(0,0)
+lcdZone.write('Hola?')
+lcdZone.setColor(0, 153, 0)
+'''
+	
 
 # Read the input and print, waiting one second between readings
 while 1:
