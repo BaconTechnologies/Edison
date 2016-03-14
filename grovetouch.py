@@ -21,7 +21,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import time
-import pyupm_grove as ttp223
+import pyupm_ttp223 as ttp223
 
 # Create the TTP223 touch sensor object using GPIO pin 0
 touch = ttp223.TTP223(4)
