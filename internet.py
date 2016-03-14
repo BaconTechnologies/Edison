@@ -4,6 +4,8 @@ import json
 from led import *
 
 zones = [[], []]
+zones[1] = 10;
+zones[2] = 10;
 
 def enterZone( zoneNumber ):
 	global zones
