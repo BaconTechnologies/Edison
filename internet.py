@@ -4,10 +4,12 @@ import json
 def enterZone( zoneNumber ):
 	url = "https://randomuser.me/api/?results=" + zoneNumber
 
+	'''
 	html = urllib2.urlopen( url ).read()
 
 	try: js = json.loads(html)
 	except: js = None
+	'''
 
 	zoneName = "(Enter) Zone " + zoneNumber
 	print zoneName
@@ -25,10 +27,12 @@ def enterZone( zoneNumber ):
 def exitZone( zoneNumber ):
 	url = "https://randomuser.me/api/?results=" + zoneNumber
 
+	'''
 	html = urllib2.urlopen( url ).read()
 
 	try: js = json.loads(html)
 	except: js = None
+	'''
 
 	zoneName = "(Exit) Zone " + zoneNumber
 	print zoneName
