@@ -2,7 +2,7 @@ import urllib2
 import json
 
 def request( whereAreYouGoing ):
-	url = "https://randomuser.me/api/?results=", whereAreYouGoing
+	url = "https://randomuser.me/api/?results=" + whereAreYouGoing
 
 	print url
 
