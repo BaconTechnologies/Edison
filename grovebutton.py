@@ -29,7 +29,7 @@ button = grove.GroveButton(8)
 # Read the input and print, waiting one second between readings
 while 1:
     print button.name(), ' value is ', button.value()
-    time.sleep(0.8)
+    time.sleep(0.95)
 
 # Delete the button object
 del button
