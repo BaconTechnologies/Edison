@@ -53,7 +53,7 @@ def exitZone( zoneNumber ):
 	zoneName = "(Exit) Zone " + zoneNumber
 	print zoneName
 
-	if zones[zoneNumber] > 0 && zones[zoneNumber] <= 10:
+	if zones[zoneNumber] > 0 and zones[zoneNumber] <= 10:
 		--zones[zoneNumber]
 		availableSpaces()
 	else:
