@@ -30,7 +30,7 @@ while 1:
 		zoneNumber = "2"
 		exitZone( zoneNumber )
 	
-	time.sleep(2)
+	time.sleep(0.90)
 
 # Delete the button object
 del enterZone1
