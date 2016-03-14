@@ -32,8 +32,7 @@ while 1:
 		print 'Pressed!'
 	else :
 		print 'Not Pressed'
-		
-    time.sleep(1)
+	time.sleep(1)
 
 # Delete the button object
 del button
