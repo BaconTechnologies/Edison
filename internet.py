@@ -3,12 +3,14 @@ import json
 
 from led import *
 
+limitSpace = 10
 zones = [[], [], []]
-zones[1] = 10;
-zones[2] = 10;
+
+for i in range(0, len(zones)):
+	zones[i] = limitSpace
 
 def enterZone( zoneNumber ):
-	global zones
+	global zones, limitSpace
 
 	url = "https://randomuser.me/api/?results=" + zoneNumber
 
@@ -22,8 +24,8 @@ def enterZone( zoneNumber ):
 	zoneName = "(Enter) Zone " + zoneNumber
 	print zoneName
 
-	if zones[int(zoneNumber)] >= 0 and zones[int(zoneNumber)] < 10:
-		++zones[int(zoneNumber)]
+	if zones[int(zoneNumber)] > 0 and zones[int(zoneNumber)] <= limitSpace:
+		--zones[int(zoneNumber)]
 		availableSpaces()
 
 	else:
@@ -55,8 +57,8 @@ def exitZone( zoneNumber ):
 	zoneName = "(Exit) Zone " + zoneNumber
 	print zoneName
 
-	if zones[int(zoneNumber)] > 0 and zones[int(zoneNumber)] <= 10:
-		--zones[int(zoneNumber)]
+	if zones[int(zoneNumber)] >= 0 and zones[int(zoneNumber)] < limitSpace:
+		++zones[int(zoneNumber)]
 		availableSpaces()
 	else:
 		print 'Upss;'

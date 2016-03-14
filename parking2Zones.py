@@ -15,13 +15,6 @@ exitZone1 = ttp223.TTP223(3)
 exitZone2 = ttp223.TTP223(7)
 
 # Initialize LCD Displays
-'''
-lcdZone = lcd.Jhd1313m1(0, 0x3E, 0x62)
-lcdZone.setCursor(0,0)
-lcdZone.write('Hola?')
-lcdZone.setColor(0, 153, 0)
-'''
-	
 
 # Read the input and print, waiting one second between readings
 while 1:
@@ -41,7 +34,7 @@ while 1:
 		zoneNumber = "2"
 		exitZone( zoneNumber )
 	
-	time.sleep(1)
+	#time.sleep(1)
 
 # Delete the button object
 del enterZone1
