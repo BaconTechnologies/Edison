@@ -18,12 +18,12 @@ exitZone2 = ttp223.TTP223(7)
 lcdZone1 = lcd.Jhd1313m1(0, 0x3E, 0x62)
 #lcdZone2 = lcd.Jhd1313m1(0, 0x3E, 0x62)
 
-'''
 def initLCD(lcdZone):
 	lcdZone.setCursor(0,0)
 	lcdZone.setColor(255, 0, 0)
 	lcdZone.write('Hola?')
 
+'''
 initLCD( lcdZone1 )
 initLCD( lcdZone2 )
 '''
