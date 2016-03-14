@@ -8,7 +8,7 @@ myLcd.setCursor(0,0)
 #myLcd.setColor(53, 39, 249)
 
 # RGB Red
-myLcd.setColor(250, 0, 0)
+myLcd.setColor(150, 0, 0)
 
 myLcd.write('Hello World')
 myLcd.setCursor(1,2)
