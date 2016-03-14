@@ -21,8 +21,3 @@ def notAvailableSpaces():
 
 	ledON.off()
 	ledOFF.on()
-
-
-# Delete the Grove LED object
-del ledON
-del ledOFF
