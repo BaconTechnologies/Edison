@@ -15,8 +15,8 @@ exitZone1 = ttp223.TTP223(3)
 exitZone2 = ttp223.TTP223(7)
 
 # Initialize LCD Displays
-lcdZone1 = lcd.Jhd1313m1(0, 0x3E, 0x62)
-lcdZone2 = lcd.Jhd1313m1(0, 0x3E, 0x62)
+lcdZone1 = lcd.Jhd1313m1(1, 0x3E, 0x62)
+lcdZone2 = lcd.Jhd1313m1(6, 0x3E, 0x62)
 
 def initLCD(lcdZone):
 	lcdZone.setCursor(0,0)
