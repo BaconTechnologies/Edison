@@ -29,7 +29,7 @@ initLCD( lcdZone2 )
 '''
 
 lcdZone.setCursor(0,0)
-lcdZone.setColor(255, 0, 0)
+lcdZone.setColor(0, 153, 0)
 lcdZone.write('Hola?')
 
 # Read the input and print, waiting one second between readings
