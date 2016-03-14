@@ -6,10 +6,14 @@ ledON = grove.GroveLed(2)
 ledOFF = grove.GroveLed(6)
 
 def availableSpaces():
+	global ledON, ledOFF
+
 	ledOFF.off()
 	ledON.on()
 
 def notAvailableSpaces():
+	global ledON, ledOFF
+	
 	ledON.off()
 	ledOFF.on()
 
