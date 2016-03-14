@@ -23,6 +23,7 @@ def initLCD(lcdZone):
 	lcdZone.write('Hola?')
 
 initLCD( lcdZone1 )
+initLCD( lcdZone2 )
 
 # Read the input and print, waiting one second between readings
 while 1:
