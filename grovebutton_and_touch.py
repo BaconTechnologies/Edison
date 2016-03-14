@@ -24,7 +24,8 @@ while 1:
 		request( whereAreYouGoing )
 	else :
 		print 'Touch Not Pressed'
-	time.sleep(2)
+	
+	time.sleep(5)
 
 # Delete the button object
 del button
