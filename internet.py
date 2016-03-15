@@ -12,6 +12,8 @@ for i in range(0, len(zones)):
 def enterZone( zoneNumber ):
 	global zones, limitSpace
 
+	zoneNumber = int(zoneNumber)
+
 	url = "https://randomuser.me/api/?results=" + zoneNumber
 
 	'''
@@ -19,20 +21,7 @@ def enterZone( zoneNumber ):
 
 	try: js = json.loads(html)
 	except: js = None
-	'''
 
-	zoneName = "(Enter) Zone " + zoneNumber
-	print zoneName
-
-	if zones[int(zoneNumber)] > 0 and zones[int(zoneNumber)] <= limitSpace:
-		--zones[int(zoneNumber)]
-		availableSpaces()
-
-	else:
-		print 'No more space'
-		notAvailableSpaces()
-
-	'''
 	basePath = "results"
 
 	for i in range( 0, len( js[basePath] ) ):
@@ -41,6 +30,17 @@ def enterZone( zoneNumber ):
 
 		print (firstName + '	password: ' + password).encode('utf-8')
 	'''
+
+	if zones[zoneNumber] > 0 and zones[zoneNumber] <= limitSpace:
+		--zones[zoneNumber]
+		availableSpaces()
+
+	else:
+		print 'No more space'
+		notAvailableSpaces()
+
+	zoneName = "Zone " + zoneNumber + "			Available: " + zones[zoneNumber]
+	print zoneName
 
 def exitZone( zoneNumber ):
 	global zones
@@ -52,19 +52,7 @@ def exitZone( zoneNumber ):
 
 	try: js = json.loads(html)
 	except: js = None
-	'''
 
-	zoneName = "(Exit) Zone " + zoneNumber
-	print zoneName
-
-	if zones[int(zoneNumber)] >= 0 and zones[int(zoneNumber)] < limitSpace:
-		++zones[int(zoneNumber)]
-		availableSpaces()
-	else:
-		print 'Upss;'
-		notAvailableSpaces()
-
-	'''
 	basePath = "results"
 
 	for i in range( 0, len( js[basePath] ) ):
@@ -73,3 +61,13 @@ def exitZone( zoneNumber ):
 
 		print (firstName + '	password: ' + password).encode('utf-8')
 	'''
+
+	if zones[zoneNumber] >= 0 and zones[zoneNumber] < limitSpace:
+		++zones[zoneNumber]
+		availableSpaces()
+	else:
+		print 'Upss;'
+		notAvailableSpaces()
+
+	zoneName = "Zone " + zoneNumber + "			Available: " + zones[zoneNumber]
+	print zoneName
