@@ -11,6 +11,9 @@ zones = [[], [], []]
 for i in range(0, len(zones)):
 	zones[i] = limitSpace
 
+zoneName = ""
+showInScreen()
+
 def enterZone( zoneNumber ):
 	global zones, limitSpace
 	isAvailable = 0
@@ -88,7 +91,8 @@ def exitZone( zoneNumber ):
 		#Capacity out of range
 		print 'Upss;'
 
-		isAvailable = 0
+		#Always show positive message
+		isAvailable = 1
 
 	zoneName = "Zone " + str(zoneNumber)
 	zoneAvailable = "Available: " + str(zones[zoneNumber])
