@@ -3,7 +3,7 @@ import sys
 def write():
     print('Creating new text file') 
 
-    filename = input('Enter name of text file: ')  # Name of text file coerced with +.txt
+    filename = raw_input('Enter name of text file: ')  # Name of text file coerced with +.txt
 
     print filename + '.txt'
 
