@@ -21,6 +21,7 @@ def init( arg_zoneNumber ):
 	zoneNumber = int(arg_zoneNumber)
 
 	# Get from REST API spaces available
+	# http://host.com/idZone/available
 	spacesAvailable = limitSpace
 
 	# Check if there are available spaces
@@ -41,6 +42,7 @@ def enterZone():
 	isAvailable = 0
 
 	# Set endpoint of REST API
+	# http://host.com/idZone/enter
 	url = "https://randomuser.me/api/?results=" + str(zoneNumber)
 
 	'''
@@ -86,6 +88,7 @@ def exitZone():
 	isAvailable = 0
 
 	# Set endpoint of REST API
+	# http://host.com/idZone/exit
 	url = "https://randomuser.me/api/?results=" + str(zoneNumber)
 
 	'''
