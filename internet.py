@@ -87,6 +87,7 @@ def enterZone():
 	spacesAvailable = int(js[availability_field])
 
 	# Capacity its in valid range
+	'''
 	if spacesAvailable > 0 and spacesAvailable <= limitSpace:
 		spacesAvailable = spacesAvailable - 1
 
@@ -96,6 +97,7 @@ def enterZone():
 		print 'No more space'
 
 		isAvailable = 0
+	'''
 
 	# Check if parking its full
 	if spacesAvailable == 0:
@@ -132,6 +134,7 @@ def exitZone():
 	spacesAvailable = int(js[availability_field])
 
 	# Capacity its in valid range
+	'''
 	if spacesAvailable >= 0 and spacesAvailable < limitSpace:
 		#Add one space available
 		spacesAvailable = spacesAvailable + 1
@@ -143,6 +146,7 @@ def exitZone():
 
 		#Always show positive message
 		isAvailable = 1
+	'''
 
 	# Show message at display
 	#zoneName = "Zone " + zoneID
