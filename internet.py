@@ -6,22 +6,39 @@ from lcd import *
 # Set max capacity 
 limitSpace = 10
 zones = [[], [], []]
+zoneNumber = 0
+
+isAvailable = 0
+spacesAvailable = 0
 
 # Init max capacity of each zone
 for i in range(0, len(zones)):
 	zones[i] = limitSpace
 
-zoneName = ""
-showInScreen()
+def init( zoneNumber ):
+	global zones, zoneNumber, isAvailable, spacesAvailable
 
-def enterZone( zoneNumber ):
-	global zones, limitSpace
-	isAvailable = 0
-
-	url = "https://randomuser.me/api/?results=" + zoneNumber
-
-	# Cast zoneNumber to int (get from REST API)
+	# Cast zoneNumber to int
 	zoneNumber = int(zoneNumber)
+
+	# Get from REST API spaces available
+	spacesAvailable = zones[zoneNumber]
+
+	# Check if there are available spaces
+	if availableSpaces > 0:
+		isAvailable = 1
+	else:
+		isAvailable = 0
+
+	# Initial display message
+	zoneName = "Zone " + str(zoneNumber)
+	zoneAvailable = "Available: " + str(spacesAvailable)
+	showInScreen( zoneName, zoneAvailable, isAvailable )
+
+def enterZone():
+	global zones, limitSpace, zoneNumber, isAvailable, spacesAvailable
+
+	url = "https://randomuser.me/api/?results=" + str(zoneNumber)
 
 	'''
 	html = urllib2.urlopen( url ).read()
@@ -39,8 +56,8 @@ def enterZone( zoneNumber ):
 	'''
 
 	# Capacity its in valid range
-	if zones[zoneNumber] > 0 and zones[zoneNumber] <= limitSpace:
-		zones[zoneNumber] = zones[zoneNumber] - 1
+	if spacesAvailable > 0 and spacesAvailable <= limitSpace:
+		spacesAvailable = spacesAvailable - 1
 
 		isAvailable = 1
 	else:
@@ -50,22 +67,18 @@ def enterZone( zoneNumber ):
 		isAvailable = 0
 
 	# Check if parking its full
-	if zones[zoneNumber] == 0:
+	if spacesAvailable == 0:
 
 		isAvailable = 0
 
 	zoneName = "Zone " + str(zoneNumber)
-	zoneAvailable = "Available: " + str(zones[zoneNumber])
+	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
-def exitZone( zoneNumber ):
-	global zones
-	isAvailable = 0
+def exitZone():
+	global zones, limitSpace, zoneNumber, isAvailable, spacesAvailable
 
-	url = "https://randomuser.me/api/?results=" + zoneNumber
-
-	# Cast zoneNumber to int (get from REST API)
-	zoneNumber = int(zoneNumber)
+	url = "https://randomuser.me/api/?results=" + str(zoneNumber)
 
 	'''
 	html = urllib2.urlopen( url ).read()
@@ -83,8 +96,9 @@ def exitZone( zoneNumber ):
 	'''
 
 	# Capacity its in valid range
-	if zones[zoneNumber] >= 0 and zones[zoneNumber] < limitSpace:
-		zones[zoneNumber] = zones[zoneNumber] + 1
+	if spacesAvailable >= 0 and spacesAvailable < limitSpace:
+		#Add one space available
+		spacesAvailable = spacesAvailable + 1
 
 		isAvailable = 1
 	else:
@@ -95,5 +109,5 @@ def exitZone( zoneNumber ):
 		isAvailable = 1
 
 	zoneName = "Zone " + str(zoneNumber)
-	zoneAvailable = "Available: " + str(zones[zoneNumber])
+	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )

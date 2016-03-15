@@ -9,5 +9,5 @@ commit_master: all
 commit_dev: all
 	git checkout dev
 	git add --all
-	git commit -m "testing grove button"
+	git commit -m "Fix confuse red light at initial"
 	git push origin dev
