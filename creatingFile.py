@@ -4,10 +4,11 @@ def write():
     print('Creating new text file') 
 
     extension = ".py"
-    filename = "parkingZone" + raw_input('Enter zone ID: ') + extension
+    zoneID = raw_input('Enter zone ID: ')
+    filename = "parkingZone" + str(zoneID) + extension
 
     declarationImport = 'from parkingGeneric import *\n'
-    declarationZoneID = '# Set Zone ID\nzoneID = "zona1"'
+    declarationZoneID = '# Set Zone ID\nzoneID = "' + str(zoneID) + '"'
     initializationParking = '# Initialize Parking\ninitParking( zoneID )'
 
     try:
