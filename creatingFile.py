@@ -3,13 +3,22 @@ import sys
 def write():
     print('Creating new text file') 
 
-    filename = raw_input('Enter name of text file: ')  # Name of text file coerced with +.txt
+    extension = ".py"
+    filename = "parkingZone" + raw_input('Enter zone ID: ') + extension
 
-    print filename + '.txt'
+    declarationImport = "from parkingGeneric import *"
+
+	declarationZoneID = '# Set Zone ID\nzoneID = "zona1"'
+
+	initializationParking = '# Initialize Parking\ninitParking( zoneID )'
 
     try:
-        file = open('output.txt','a')   # Trying to create a new file or open one
-        file.write("Some text")
+        file = open(filename,'w')   # Trying to create a new file or open one
+        
+        file.write(declarationImport)
+        file.write(declarationZoneID)
+        file.write(initializationParking)
+        
         file.close()
 
     except:
