@@ -4,26 +4,26 @@ import pyupm_ttp223 as ttp223
 
 from internet import *
 
-zoneNumber = "1"
+zoneNumber = "2"
 
-# Create button sensor in D4
-enterZone1 = grove.GroveButton(4)
+# Create button sensor in D8
+enterZone2 = grove.GroveButton(8)
 
-# Create touch sensor in D3
-exitZone1 = ttp223.TTP223(3)
+# Create touch sensor in D7
+exitZone2 = ttp223.TTP223(7)
 
 # Read the input and print, waiting one second between readings
 while 1:
-	if enterZone1.value() :
+	if enterZone2.value() :
 		enterZone( zoneNumber )
-
-	if exitZone1.value() :
+	
+	if exitZone2.value() :
 		exitZone( zoneNumber )
 	
 	time.sleep(1)
 
 # Delete the button object
-del enterZone1
+del enterZone2
 
 # Delete the touch sensor object
-del exitZone1
+del exitZone2
