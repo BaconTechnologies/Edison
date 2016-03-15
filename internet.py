@@ -12,14 +12,25 @@ zoneID = 0
 # Save spaces available in zone
 spacesAvailable = 0
 
+# Host details
+host = "http://10.43.54.5:8000"
+endpoint_zoneDetails = host + "/api/zone"
+endpoint_zoneEnter = host + "/api/zone" # /api/zone/:zoneID/enter
+endpoint_zoneExit = host + "/api/zone"  # /api/zone/:zoneID/exit
+
 def init( arg_zoneID ):
-	global zoneID, spacesAvailable, limitSpace
+	global host, endpoint_zoneDetails, endpoint_zoneEnter, endpoint_zoneExit,
+			zoneID, spacesAvailable, limitSpace
 
 	isAvailable = 0
 
+	# Set zoneID
 	zoneID = str(arg_zoneID)
 
-	endpoint = "http://10.43.54.5:8000/api/zone/" + zoneID
+	# Configure endpoints
+	endpoint_zoneDetails = endpoint_zoneDetails + "/" + zoneID
+	endpoint_zoneEnter = endpoint_zoneEnter + "/" + zoneID + "/enter"
+	endpoint_zoneExit = endpoint_zoneExit + "/" + zoneID + "/exit"
 
 	# Fields of endpoint result
 	capacity_field = "capacity"
@@ -53,13 +64,10 @@ def init( arg_zoneID ):
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
 def enterZone():
-	global limitSpace, zoneID, spacesAvailable, zoneName
+	global endpoint_zoneEnter, limitSpace, zoneID, spacesAvailable, zoneName
 
 	# Declare flag
 	isAvailable = 0
-
-	# Set endpoint of REST API of enter zone
-	endpoint = "http://10.43.54.5:8000/api/zone/" + zoneID + "/enter"
 
 	# Fields of endpoint result
 	capacity_field = "capacity"
@@ -68,7 +76,7 @@ def enterZone():
 	zoneName_field = "name"
 	zoneID_field = "id"
 
-	response = urllib2.urlopen( endpoint ).read()
+	response = urllib2.urlopen( endpoint_zoneEnter ).read()
 
 	try: js = json.loads( response )
 	except: js = None
@@ -87,13 +95,10 @@ def enterZone():
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
 def exitZone():
-	global limitSpace, zoneID, spacesAvailable, zoneName
+	global endpoint_zoneExit, limitSpace, zoneID, spacesAvailable, zoneName
 
 	# Declare flag
 	isAvailable = 0
-
-	# Set endpoint of REST API of exit zone
-	endpoint = "http://10.43.54.5:8000/api/zone/" + zoneID + "/exit"
 
 	# Fields of endpoint result
 	capacity_field = "capacity"
@@ -102,7 +107,7 @@ def exitZone():
 	zoneName_field = "name"
 	zoneID_field = "id"
 
-	response = urllib2.urlopen( endpoint ).read()
+	response = urllib2.urlopen( endpoint_zoneExit ).read()
 
 	try: js = json.loads( response )
 	except: js = None
