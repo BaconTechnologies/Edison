@@ -19,8 +19,7 @@ endpoint_zoneEnter = host + "/api/zone" # /api/zone/:zoneID/enter
 endpoint_zoneExit = host + "/api/zone"  # /api/zone/:zoneID/exit
 
 def init( arg_zoneID ):
-	global host, endpoint_zoneDetails, endpoint_zoneEnter, endpoint_zoneExit,
-			zoneID, spacesAvailable, limitSpace
+	global host, endpoint_zoneDetails, endpoint_zoneEnter, endpoint_zoneExit, zoneID, spacesAvailable, limitSpace
 
 	isAvailable = 0
 
