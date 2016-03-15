@@ -3,8 +3,8 @@ import json
 
 from led import *
 
-limitSpace = 10
-zones = [[], [], []]
+global limitSpace = 10
+global zones = [[], [], []]
 
 for i in range(0, len(zones)):
 	zones[i] = limitSpace
