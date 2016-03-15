@@ -15,11 +15,11 @@ spacesAvailable = 0
 for i in range(0, len(zones)):
 	zones[i] = limitSpace
 
-def init( zoneNumber ):
+def init( arg_zoneNumber ):
 	global zones, zoneNumber, isAvailable, spacesAvailable
 
 	# Cast zoneNumber to int
-	zoneNumber = int(zoneNumber)
+	zoneNumber = int(arg_zoneNumber)
 
 	# Get from REST API spaces available
 	spacesAvailable = zones[zoneNumber]
