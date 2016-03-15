@@ -43,7 +43,7 @@ def init( arg_zoneID ):
 	except: js = None
 
 	# Get from REST API zone name
-	zoneName = js[zoneName_field]
+	zoneName = str(js[zoneName_field])
 
 	# Get from REST API limit spaces
 	limitSpace = int(js[capacity_field])
