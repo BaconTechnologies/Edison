@@ -25,7 +25,7 @@ def init( arg_zoneNumber ):
 	spacesAvailable = zones[zoneNumber]
 
 	# Check if there are available spaces
-	if availableSpaces > 0:
+	if spacesAvailable > 0:
 		isAvailable = 1
 	else:
 		isAvailable = 0
