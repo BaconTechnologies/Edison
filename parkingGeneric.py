@@ -21,12 +21,12 @@ def initParking( zoneID ):
 		# Enter Zone detection
 		if enterZone1.value() :
 			print 'Enter'
-			#enterZone()
+			enterZone()
 
 		# Exit Zone detection
 		if exitZone1.value() :
 			print 'Exit'
-			#exitZone()
+			exitZone()
 		
 		# Wait 1 second
 		time.sleep(1)

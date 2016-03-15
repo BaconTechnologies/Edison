@@ -63,29 +63,28 @@ def init( arg_zoneID ):
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
 def enterZone():
-	global limitSpace, zoneID, spacesAvailable
+	global limitSpace, zoneID, spacesAvailable, zoneName
 
 	# Declare flag
 	isAvailable = 0
 
-	# Set endpoint of REST API
-	# http://host.com/idZone/enter
-	url = "http://10.43.54.5:8000/api/?results=" + zoneID
+	# Set endpoint of REST API of enter zone
+	endpoint = "http://10.43.54.5:8000/api/zone/" + zoneID + "/enter"
 
-	'''
-	html = urllib2.urlopen( url ).read()
+	# Fields of endpoint result
+	capacity_field = "capacity"
+	occupancy_field = "occupancy"
+	availability_field = "availability"
+	zoneName_field = "name"
+	zoneID_field = "id"
 
-	try: js = json.loads(html)
+	response = urllib2.urlopen( endpoint ).read()
+
+	try: js = json.loads( response )
 	except: js = None
 
-	basePath = "results"
-
-	for i in range( 0, len( js[basePath] ) ):
-		firstName = js[basePath][i]["user"]["email"]
-		password = js[basePath][i]["user"]["password"]
-
-		print (firstName + '	password: ' + password).encode('utf-8')
-	'''
+	zoneName = str(js[zoneName_field])
+	spacesAvailable = int(js[availability_field])
 
 	# Capacity its in valid range
 	if spacesAvailable > 0 and spacesAvailable <= limitSpace:
@@ -109,29 +108,28 @@ def enterZone():
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
 def exitZone():
-	global limitSpace, zoneID, spacesAvailable
+	global limitSpace, zoneID, spacesAvailable, zoneName
 
 	# Declare flag
 	isAvailable = 0
 
-	# Set endpoint of REST API
-	# http://host.com/idZone/exit
-	url = "https://randomuser.me/api/?results=" + zoneID
+	# Set endpoint of REST API of exit zone
+	endpoint = "http://10.43.54.5:8000/api/zone/" + zoneID + "/exit"
 
-	'''
-	html = urllib2.urlopen( url ).read()
+	# Fields of endpoint result
+	capacity_field = "capacity"
+	occupancy_field = "occupancy"
+	availability_field = "availability"
+	zoneName_field = "name"
+	zoneID_field = "id"
 
-	try: js = json.loads(html)
+	response = urllib2.urlopen( endpoint ).read()
+
+	try: js = json.loads( response )
 	except: js = None
 
-	basePath = "results"
-
-	for i in range( 0, len( js[basePath] ) ):
-		firstName = js[basePath][i]["user"]["email"]
-		password = js[basePath][i]["user"]["password"]
-
-		print (firstName + '	password: ' + password).encode('utf-8')
-	'''
+	zoneName = str(js[zoneName_field])
+	spacesAvailable = int(js[availability_field])
 
 	# Capacity its in valid range
 	if spacesAvailable >= 0 and spacesAvailable < limitSpace:
