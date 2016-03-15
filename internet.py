@@ -6,7 +6,7 @@ from lcd import *
 # Set max capacity 
 limitSpace = 10
 
-# Save zone number
+# Save zone ID
 zoneID = 0
 
 # Save spaces available in zone
