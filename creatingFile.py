@@ -8,7 +8,7 @@ def write():
     print filename + '.txt'
 
     try:
-        file = open(filename,'a')   # Trying to create a new file or open one
+        file = open('output.txt','a')   # Trying to create a new file or open one
         file.write("Some text")
         file.close()
 
