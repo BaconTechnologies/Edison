@@ -8,8 +8,7 @@ def write():
 
     declarationImport = 'from parkingGeneric import *'
     declarationZoneID = '# Set Zone ID\nzoneID = "zona1"'
-
-	initializationParking = '# Initialize Parking\ninitParking( zoneID )'
+    initializationParking = '# Initialize Parking\ninitParking( zoneID )'
 
     try:
         file = open(filename,'w')   # Trying to create a new file or open one
