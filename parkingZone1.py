@@ -12,13 +12,18 @@ enterZone1 = grove.GroveButton(4)
 # Create touch sensor in D3
 exitZone1 = ttp223.TTP223(3)
 
+# Initial configuration
+init( zoneNumber )
+
 # Read the input and print, waiting one second between readings
 while 1:
+	# Enter Zone detection
 	if enterZone1.value() :
-		enterZone( zoneNumber )
+		enterZone()
 
+	# Exit Zone detection
 	if exitZone1.value() :
-		exitZone( zoneNumber )
+		exitZone()
 	
 	time.sleep(1)
 
