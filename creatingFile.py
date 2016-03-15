@@ -3,9 +3,9 @@ import sys
 def write():
     print('Creating new text file') 
 
-    filename = input('Enter name of text file: ')+'.txt'  # Name of text file coerced with +.txt
+    filename = input('Enter name of text file: ')  # Name of text file coerced with +.txt
 
-    print filename
+    print filename + '.txt'
 
     try:
         file = open(filename,'a')   # Trying to create a new file or open one
