@@ -46,7 +46,7 @@ def init( arg_zoneID ):
 	zoneName = js[zoneName_field]
 
 	# Get from REST API limit spaces
-	limitSpace = js[capacity_field]
+	limitSpace = int(js[capacity_field])
 
 	# Get from REST API spaces available
 	spacesAvailable = int(js[availability_field])
