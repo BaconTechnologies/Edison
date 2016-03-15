@@ -6,7 +6,7 @@ def write():
     name = input('Enter name of text file: ')+'.txt'  # Name of text file coerced with +.txt
 
     try:
-        file = open(name,'w')   # Trying to create a new file or open one
+        file = open(name,'a')   # Trying to create a new file or open one
         file.write("Some text")
         file.close()
 
