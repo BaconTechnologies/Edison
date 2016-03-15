@@ -1,8 +1,6 @@
 import sys
 
-def write():
-    print('Creating new text file') 
-
+def createParkingZone():
     extension = ".py"
     zoneID = raw_input('Enter zone ID: ')
     filename = "parkingZone" + str(zoneID) + extension
@@ -24,4 +22,4 @@ def write():
         print('Something went wrong! Can\'t tell what?')
         sys.exit(0) # quit Python
 
-write()
+createParkingZone()
