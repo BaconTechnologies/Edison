@@ -3,6 +3,7 @@ import json
 
 from led import *
 
+# Set max capacity 
 limitSpace = 10
 zones = [[], [], []]
 
@@ -34,9 +35,11 @@ def enterZone( zoneNumber ):
 	if zones[zoneNumber] > 0 and zones[zoneNumber] <= limitSpace:
 		zones[zoneNumber] = zones[zoneNumber] - 1
 		availableSpaces()
-
 	else:
 		print 'No more space'
+		notAvailableSpaces()
+
+	if zones[zoneNumber] == 0:
 		notAvailableSpaces()
 
 	zoneName = "Zone " + str(zoneNumber) + "			Available: " + str(zones[zoneNumber])
