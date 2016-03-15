@@ -19,15 +19,6 @@ def init( arg_zoneID ):
 
 	zoneID = str(arg_zoneID)
 
-	'''
-	{
-		"capacity": int,
-		"occupancy": int,
-		"availability": int,
-		"name": string,
-		"id": string
-	}
-	'''
 	endpoint = "http://10.43.54.5:8000/api/zone/" + zoneID
 
 	# Fields of endpoint result
@@ -58,7 +49,6 @@ def init( arg_zoneID ):
 		isAvailable = 0
 
 	# Initial display message
-	#zoneName = "Zone " + zoneID
 	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
@@ -106,7 +96,6 @@ def enterZone():
 		isAvailable = 1
 
 	# Show message at display
-	#zoneName = "Zone " + zoneID
 	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
@@ -149,7 +138,9 @@ def exitZone():
 		isAvailable = 1
 	'''
 
+	if spacesAvailable > 0:
+		isAvailable = 1
+
 	# Show message at display
-	#zoneName = "Zone " + zoneID
 	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
