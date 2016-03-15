@@ -3,8 +3,8 @@ import json
 
 from led import *
 
-global limitSpace = 10
-global zones = [[], [], []]
+limitSpace = 10
+zones = [[], [], []]
 
 for i in range(0, len(zones)):
 	zones[i] = limitSpace
@@ -32,7 +32,7 @@ def enterZone( zoneNumber ):
 	'''
 
 	if zones[zoneNumber] > 0 and zones[zoneNumber] <= limitSpace:
-		--zones[zoneNumber]
+		zones[zoneNumber] = zones[zoneNumber] - 1
 		availableSpaces()
 
 	else:
@@ -65,7 +65,7 @@ def exitZone( zoneNumber ):
 	'''
 
 	if zones[zoneNumber] >= 0 and zones[zoneNumber] < limitSpace:
-		++zones[zoneNumber]
+		zones[zoneNumber] = zones[zoneNumber] + 1
 		availableSpaces()
 	else:
 		print 'Upss;'
