@@ -3,10 +3,12 @@ import sys
 def write():
     print('Creating new text file') 
 
-    name = input('Enter name of text file: ')+'.txt'  # Name of text file coerced with +.txt
+    filename = input('Enter name of text file: ')+'.txt'  # Name of text file coerced with +.txt
+
+    print filename
 
     try:
-        file = open(name,'a')   # Trying to create a new file or open one
+        file = open(filename,'a')   # Trying to create a new file or open one
         file.write("Some text")
         file.close()
 
