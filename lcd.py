@@ -4,7 +4,7 @@ import pyupm_i2clcd as lcd
 display = lcd.Jhd1313m1(1, 0x3E, 0x62)
 
 # Set Background Color of Display
-display.setColor(150, 0, 0)
+display.setColor(255, 255, 255)
 
 def showInScreen(textUp, textDown, isAvailable):
 	global display
