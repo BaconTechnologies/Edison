@@ -38,7 +38,7 @@ def init( arg_zoneID ):
 	zoneName_field = "name"
 	zoneID_field = "id"
 
-	response = urllib2.urlopen( endpoint ).read()
+	response = urllib2.urlopen( endpoint_zoneDetails ).read()
 
 	try: js = json.loads( response )
 	except: js = None
