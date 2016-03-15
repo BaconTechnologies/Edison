@@ -7,22 +7,49 @@ from lcd import *
 limitSpace = 10
 
 # Save zone number
-zoneNumber = 0
+zoneID = 0
 
 # Save spaces available in zone
 spacesAvailable = 0
 
-def init( arg_zoneNumber ):
-	global zoneNumber, spacesAvailable, limitSpace
+def init( arg_zoneID ):
+	global zoneID, spacesAvailable, limitSpace
 
 	isAvailable = 0
 
-	# Cast zoneNumber to int
-	zoneNumber = int(arg_zoneNumber)
+	zoneID = str(arg_zoneID)
+
+	'''
+	{
+		"capacity": int,
+		"occupancy": int,
+		"availability": int,
+		"name": string,
+		"id": string
+	}
+	'''
+	endpoint = "http://10.43.54.5:8000/api/zone/" + zoneID
+
+	# Fields of endpoint result
+	capacity_field = "capacity"
+	occupancy_field = "occupancy"
+	availability_field = "availability"
+	zoneName_field = "name"
+	zoneID_field = "id"
+
+	response = urllib2.urlopen( endpoint ).read()
+
+	try: js = json.loads( response )
+	except: js = None
+
+	# Get from REST API zone name
+	zoneName = js[zoneName_field]
+
+	# Get from REST API limit spaces
+	limitSpace = js[capacity_field]
 
 	# Get from REST API spaces available
-	# http://host.com/idZone/available
-	spacesAvailable = limitSpace
+	spacesAvailable = int(js[availability_field])
 
 	# Check if there are available spaces
 	if spacesAvailable > 0:
@@ -31,19 +58,19 @@ def init( arg_zoneNumber ):
 		isAvailable = 0
 
 	# Initial display message
-	zoneName = "Zone " + str(zoneNumber)
+	#zoneName = "Zone " + zoneID
 	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
 def enterZone():
-	global limitSpace, zoneNumber, spacesAvailable
+	global limitSpace, zoneID, spacesAvailable
 
 	# Declare flag
 	isAvailable = 0
 
 	# Set endpoint of REST API
 	# http://host.com/idZone/enter
-	url = "https://randomuser.me/api/?results=" + str(zoneNumber)
+	url = "http://10.43.54.5:8000/api/?results=" + zoneID
 
 	'''
 	html = urllib2.urlopen( url ).read()
@@ -77,19 +104,19 @@ def enterZone():
 		isAvailable = 0
 
 	# Show message at display
-	zoneName = "Zone " + str(zoneNumber)
+	#zoneName = "Zone " + zoneID
 	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
 def exitZone():
-	global limitSpace, zoneNumber, spacesAvailable
+	global limitSpace, zoneID, spacesAvailable
 
 	# Declare flag
 	isAvailable = 0
 
 	# Set endpoint of REST API
 	# http://host.com/idZone/exit
-	url = "https://randomuser.me/api/?results=" + str(zoneNumber)
+	url = "https://randomuser.me/api/?results=" + zoneID
 
 	'''
 	html = urllib2.urlopen( url ).read()
@@ -120,6 +147,6 @@ def exitZone():
 		isAvailable = 1
 
 	# Show message at display
-	zoneName = "Zone " + str(zoneNumber)
+	#zoneName = "Zone " + zoneID
 	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
