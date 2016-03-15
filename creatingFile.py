@@ -6,7 +6,7 @@ def write():
     extension = ".py"
     filename = "parkingZone" + raw_input('Enter zone ID: ') + extension
 
-    declarationImport = 'from parkingGeneric import *'
+    declarationImport = 'from parkingGeneric import *\n'
     declarationZoneID = '# Set Zone ID\nzoneID = "zona1"'
     initializationParking = '# Initialize Parking\ninitParking( zoneID )'
 
