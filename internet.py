@@ -1,7 +1,6 @@
 import urllib2
 import json
 
-from led import *
 from lcd import *
 
 # Set max capacity 
@@ -14,6 +13,7 @@ for i in range(0, len(zones)):
 
 def enterZone( zoneNumber ):
 	global zones, limitSpace
+	isAvailable = 0
 
 	url = "https://randomuser.me/api/?results=" + zoneNumber
 
@@ -38,15 +38,18 @@ def enterZone( zoneNumber ):
 	# Capacity its in valid range
 	if zones[zoneNumber] > 0 and zones[zoneNumber] <= limitSpace:
 		zones[zoneNumber] = zones[zoneNumber] - 1
-		availableSpaces()
+
+		isAvailable = 1
 	else:
 		# Parking its full
 		print 'No more space'
-		notAvailableSpaces()
+
+		isAvailable = 0
 
 	# Check if parking its full
 	if zones[zoneNumber] == 0:
-		notAvailableSpaces()
+
+		isAvailable = 0
 
 	zoneName = "Zone " + str(zoneNumber)
 	zoneAvailable = "Available: " + str(zones[zoneNumber])
@@ -54,6 +57,7 @@ def enterZone( zoneNumber ):
 
 def exitZone( zoneNumber ):
 	global zones
+	isAvailable = 0
 
 	url = "https://randomuser.me/api/?results=" + zoneNumber
 
@@ -78,12 +82,14 @@ def exitZone( zoneNumber ):
 	# Capacity its in valid range
 	if zones[zoneNumber] >= 0 and zones[zoneNumber] < limitSpace:
 		zones[zoneNumber] = zones[zoneNumber] + 1
-		availableSpaces()
+
+		isAvailable = 1
 	else:
 		#Capacity out of range
 		print 'Upss;'
-		notAvailableSpaces()
+
+		isAvailable = 0
 
 	zoneName = "Zone " + str(zoneNumber)
 	zoneAvailable = "Available: " + str(zones[zoneNumber])
-	showInScreen( zoneName, zoneAvailable )
+	showInScreen( zoneName, zoneAvailable,  )

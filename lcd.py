@@ -6,8 +6,13 @@ myLcd = lcd.Jhd1313m1(1, 0x3E, 0x62)
 # RGB Red
 myLcd.setColor(150, 0, 0)
 
-def showInScreen(textUp, textDown):
+def showInScreen(textUp, textDown, isAvailable):
 	global myLcd
+
+	if isAvailable:
+		myLcd.setColor(0, 255, 0)
+	else:
+		myLcd.setColor(255, 0, 0)
 
 	myLcd.clear()
 
