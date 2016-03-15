@@ -12,9 +12,9 @@ for i in range(0, len(zones)):
 def enterZone( zoneNumber ):
 	global zones, limitSpace
 
-	zoneNumber = int(zoneNumber)
-
 	url = "https://randomuser.me/api/?results=" + zoneNumber
+
+	zoneNumber = int(zoneNumber)
 
 	'''
 	html = urllib2.urlopen( url ).read()
@@ -46,6 +46,8 @@ def exitZone( zoneNumber ):
 	global zones
 
 	url = "https://randomuser.me/api/?results=" + zoneNumber
+
+	zoneNumber = int(zoneNumber)
 
 	'''
 	html = urllib2.urlopen( url ).read()
