@@ -1,25 +1,33 @@
 import pyupm_i2clcd as lcd
 
 # Initialize Jhd1313m1 at 0x3E (LCD_ADDRESS) and 0x62 (RGB_ADDRESS) 
-myLcd = lcd.Jhd1313m1(1, 0x3E, 0x62)
+display = lcd.Jhd1313m1(1, 0x3E, 0x62)
 
-# RGB Red
-myLcd.setColor(150, 0, 0)
+# Set Background Color of Display
+display.setColor(150, 0, 0)
 
 def showInScreen(textUp, textDown, isAvailable):
-	global myLcd
+	global display
 
+	# Check if its available; change to green, otherwise change to red
 	if isAvailable:
-		myLcd.setColor(0, 255, 0)
+		display.setColor(0, 255, 0)
 	else:
-		myLcd.setColor(255, 0, 0)
+		display.setColor(255, 0, 0)
 
-	myLcd.clear()
+	# Clear display
+	display.clear()
 
+	# Check if text up was fullfilled
 	if len(textUp) > 0:
-		myLcd.setCursor(0,0)
-		myLcd.write( textUp )
+		display.setCursor(0,0)
 
+		# Set Text on Display
+		display.write( textUp )
+
+	# Check if text down was fullfilled
 	if len(textDown) > 0:
-		myLcd.setCursor(1, 0)
-		myLcd.write( textDown )
+		display.setCursor(1, 0)
+
+		# Set Text on Display
+		display.write( textDown )

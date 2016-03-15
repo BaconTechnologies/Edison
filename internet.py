@@ -5,24 +5,23 @@ from lcd import *
 
 # Set max capacity 
 limitSpace = 10
-zones = [[], [], []]
+
+# Save zone number
 zoneNumber = 0
 
-isAvailable = 0
+# Save spaces available in zone
 spacesAvailable = 0
 
-# Init max capacity of each zone
-for i in range(0, len(zones)):
-	zones[i] = limitSpace
-
 def init( arg_zoneNumber ):
-	global zones, zoneNumber, isAvailable, spacesAvailable
+	global zoneNumber, spacesAvailable, limitSpace
+
+	isAvailable = 0
 
 	# Cast zoneNumber to int
 	zoneNumber = int(arg_zoneNumber)
 
 	# Get from REST API spaces available
-	spacesAvailable = zones[zoneNumber]
+	spacesAvailable = limitSpace
 
 	# Check if there are available spaces
 	if spacesAvailable > 0:
@@ -36,8 +35,12 @@ def init( arg_zoneNumber ):
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
 def enterZone():
-	global zones, limitSpace, zoneNumber, isAvailable, spacesAvailable
+	global limitSpace, zoneNumber, spacesAvailable
 
+	# Declare flag
+	isAvailable = 0
+
+	# Set endpoint of REST API
 	url = "https://randomuser.me/api/?results=" + str(zoneNumber)
 
 	'''
@@ -71,13 +74,18 @@ def enterZone():
 
 		isAvailable = 0
 
+	# Show message at display
 	zoneName = "Zone " + str(zoneNumber)
 	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
 def exitZone():
-	global zones, limitSpace, zoneNumber, isAvailable, spacesAvailable
+	global limitSpace, zoneNumber, spacesAvailable
 
+	# Declare flag
+	isAvailable = 0
+
+	# Set endpoint of REST API
 	url = "https://randomuser.me/api/?results=" + str(zoneNumber)
 
 	'''
@@ -108,6 +116,7 @@ def exitZone():
 		#Always show positive message
 		isAvailable = 1
 
+	# Show message at display
 	zoneName = "Zone " + str(zoneNumber)
 	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
