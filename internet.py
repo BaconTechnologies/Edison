@@ -48,7 +48,8 @@ def enterZone( zoneNumber ):
 	if zones[zoneNumber] == 0:
 		notAvailableSpaces()
 
-	zoneName = "Zone " + str(zoneNumber) + "			Available: " + str(zones[zoneNumber])
+	zoneName = "Zone " + str(zoneNumber)
+	zoneAvailable = "Available: " + str(zones[zoneNumber])
 	showInScreen( zoneName )
 
 def exitZone( zoneNumber ):
@@ -83,5 +84,6 @@ def exitZone( zoneNumber ):
 		print 'Upss;'
 		notAvailableSpaces()
 
-	zoneName = "Zone " + str(zoneNumber) + "			Available: " + str(zones[zoneNumber])
-	showInScreen( zoneName )
+	zoneName = "Zone " + str(zoneNumber)
+	zoneAvailable = "Available: " + str(zones[zoneNumber])
+	showInScreen( zoneName, zoneAvailable )
