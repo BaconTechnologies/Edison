@@ -13,7 +13,7 @@ zoneID = 0
 spacesAvailable = 0
 
 # Host details
-host = "http://10.43.54.5:8000"
+host = "https://enigmatic-brushlands-35263.herokuapp.com"
 endpoint_zoneDetails = host + "/api/zone"
 endpoint_zoneEnter = host + "/api/zone" # /api/zone/:zoneID/enter
 endpoint_zoneExit = host + "/api/zone"  # /api/zone/:zoneID/exit
