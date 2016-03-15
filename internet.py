@@ -100,9 +100,10 @@ def enterZone():
 	'''
 
 	# Check if parking its full
-	if spacesAvailable == 0:
-
+	if spacesAvailable <= 0:
 		isAvailable = 0
+	else:
+		isAvailable = 1
 
 	# Show message at display
 	#zoneName = "Zone " + zoneID
