@@ -9,6 +9,8 @@ myLcd.setColor(150, 0, 0)
 def showInScreen(textUp, textDown):
 	global myLcd
 
+	myLcd.clear()
+
 	if len(textUp) > 0:
 		myLcd.setCursor(0,0)
 		myLcd.write( textUp )
