@@ -50,7 +50,7 @@ def enterZone( zoneNumber ):
 
 	zoneName = "Zone " + str(zoneNumber)
 	zoneAvailable = "Available: " + str(zones[zoneNumber])
-	showInScreen( zoneName )
+	showInScreen( zoneName, zoneAvailable )
 
 def exitZone( zoneNumber ):
 	global zones
