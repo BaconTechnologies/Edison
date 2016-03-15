@@ -4,7 +4,7 @@ import pyupm_ttp223 as ttp223
 
 #import pyupm_i2clcd as lcd
 
-#from internet import *
+from internet import *
 
 
 # Create button sensor in D8 && D4
@@ -21,25 +21,21 @@ exitZone2 = ttp223.TTP223(7)
 while 1:
 	if enterZone1.value() :
 		zoneNumber = "1"
-		print 'EnterZone1'
-		#enterZone( zoneNumber )
+		enterZone( zoneNumber )
 
 	if enterZone2.value() :
 		zoneNumber = "2"
-		print 'EnterZone2'
-		#enterZone( zoneNumber )
+		enterZone( zoneNumber )
 
 	if exitZone1.value() :
 		zoneNumber = "1"
-		print 'ExitZone1'
-		#exitZone( zoneNumber )
+		exitZone( zoneNumber )
 	
 	if exitZone2.value() :
 		zoneNumber = "2"
-		print 'ExitZone2'
-		#exitZone( zoneNumber )
+		exitZone( zoneNumber )
 	
-	time.sleep(1)
+	#time.sleep(1)
 
 # Delete the button object
 del enterZone1
