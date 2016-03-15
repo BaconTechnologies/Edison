@@ -1,7 +1,7 @@
 from parkingGeneric import *
 
 # Set Zone ID
-zoneID = "2"
+zoneID = "zona2"
 
 # Initialize Parking
 initParking( zoneID )
