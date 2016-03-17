@@ -29,7 +29,7 @@ def initParking( zoneID ):
 			exitZone()
 		
 		# Wait 1 second
-		time.sleep(1)
+		time.sleep(0.1)
 
 	# Delete the button object
 	del enterZone1
