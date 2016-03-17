@@ -16,5 +16,5 @@ if __name__ == '__main__':
         if zoneID not in existingZoneIDs:
             print 'Error, the given zoneID doesn\'t correspond to an existing zone.'
         else:
-            initiParking(zoneID)
+            initParking(zoneID)
             print 'Zone ' + zoneID + ' has been initalized succesfully.'
