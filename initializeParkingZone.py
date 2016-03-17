@@ -1,8 +1,11 @@
 import sys
+import urllib2
+import json
+
 from parkingGeneric import *
-import requests
 
 baseAPIUrl = 'https://enigmatic-brushlands-35263.herokuapp.com'
+endpoint_zoneDetails = baseAPIUrl + '/api/zones'
 
 if __name__ == '__main__':
     if (len(sys.argv) != 2):
@@ -10,8 +13,13 @@ if __name__ == '__main__':
         print 'Like python createParkingZone.py Z1'
     else:
         zoneID = str(sys.argv[1])
-        zonesData = requests.get(baseAPIUrl + '/api/zones').json()
-        existingZoneIDs = [z['id'] for z in zonesData]
+
+        response = urllib2.urlopen( endpoint_zoneDetails ).read()
+
+        try: js = json.loads( response )
+        except: js = None
+
+        existingZoneIDs = [js['id'] for z in zonesData]
 
         if zoneID not in existingZoneIDs:
             print 'Error, the given zoneID doesn\'t correspond to an existing zone.'
