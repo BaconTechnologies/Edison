@@ -4,12 +4,19 @@ import time
 camera_port = 0
 ramp_frames = 30
 
-time.sleep(2)
-
 camera = cv2.VideoCapture(camera_port)
 def get_image():
  retval, im = camera.read()
  return im
+
+print 'Warming up!'
+while 1:
+	if not get_image():
+		continue
+	else:
+		break
+
+print 'Im hot!'
 
 for i in xrange(ramp_frames):
  temp = get_image()
