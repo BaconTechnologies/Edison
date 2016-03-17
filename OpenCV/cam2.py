@@ -3,6 +3,9 @@ import time
 
 camera_port = 0
 ramp_frames = 30
+
+time.sleep(2000)
+
 camera = cv2.VideoCapture(camera_port)
 def get_image():
  retval, im = camera.read()
