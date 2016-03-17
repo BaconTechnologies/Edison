@@ -11,11 +11,11 @@ def createParkingZone():
 
     try:
         file = open(filename,'w')   # Trying to create a new file or open one
-        
+
         file.write(declarationImport)
         file.write(declarationZoneID)
         file.write(initializationParking)
-        
+
         file.close()
 
     except:
