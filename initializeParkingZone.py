@@ -19,7 +19,7 @@ if __name__ == '__main__':
         try: js = json.loads( response )
         except: js = None
 
-        existingZoneIDs = [js['id'] for js in zonesData]
+        existingZoneIDs = [js['id'] for z in zonesData]
 
         if zoneID not in existingZoneIDs:
             print 'Error, the given zoneID doesn\'t correspond to an existing zone.'
