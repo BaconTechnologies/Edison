@@ -24,7 +24,7 @@ def get_image():
 for i in xrange(ramp_frames):
  temp = get_image()
 
-#print("Taking image...")
+print("Taking image...")
 
 # Take the actual image we want to keep
 camera_capture = get_image()
