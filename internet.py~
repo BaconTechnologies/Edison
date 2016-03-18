@@ -124,5 +124,5 @@ def exitZone():
 	showInScreen( zoneName, zoneAvailable, isAvailable )
 
 def detectPlate():
-	return camera.detect()
+	return camera.main()
 
