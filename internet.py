@@ -2,7 +2,6 @@ import urllib2
 import json
 
 from lcd import *
-from camera import *
 
 # Set max capacity 
 limitSpace = 10
@@ -122,7 +121,3 @@ def exitZone():
 	# Show message at display
 	zoneAvailable = "Available: " + str(spacesAvailable)
 	showInScreen( zoneName, zoneAvailable, isAvailable )
-
-def detectPlate():
-	return camera.detect()
-
